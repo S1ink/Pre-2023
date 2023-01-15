@@ -95,6 +95,10 @@
     "typeindex": "cpp",
     "typeinfo": "cpp",
     "valarray": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "cassert": "cpp",
+    "span": "cpp",
+    "topic.h": "c",
+    "*.inc": "cpp"
   }
 }

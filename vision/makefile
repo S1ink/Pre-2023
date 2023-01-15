@@ -6,8 +6,10 @@ $(error invalid 'OPT' option - choose from {release/debug})
 endif
 
 CROSS_PREFIX := arm-raspbian10-linux-gnueabihf-
+#CROSS_PREFIX := armv7-bullseye-linux-gnueabihf-
 CXX := g++
 STD := c++17
+#STD := c++20
 
 SRC_DIR := src
 OBJ_DIR := obj

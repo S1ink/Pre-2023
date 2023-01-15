@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include <pigpio.h>
 
 
@@ -32,13 +34,17 @@ struct Xfer2 : public bsc_xfer_t {
     int reset();
 };
 
-// void Xfer2::setAddr(uint8_t a, uint16_t f) {
-//     this->control = bsc_control(a, f);
-// }
-// void Xfer2::setControlFlags(uint16_t f) {
-//     this->control &= (0xffff0000);
-//     this->control |= f;
-// }
-// int Xfer2::invoke() {
-//     return bscXfer(this);
-// }
+void dumpXferState(std::ostream& o, int s);
+
+template<typename chunk_cast_t = uint8_t>
+void hexifyBuffer(std::ostream& o, const void* b, size_t bytes) {
+    o << std::hex;
+    for(size_t i = 0; i < bytes / sizeof(chunk_cast_t); i++) {
+        o << " 0x" << (intmax_t)((chunk_cast_t*)b)[i];
+    }
+    o << std::dec << std::endl;
+}
+
+
+
+void demo();
